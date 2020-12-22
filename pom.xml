@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.github.nguyentientungduong</groupId>
+    <artifactId>sample</artifactId>
+    <version>1.0.4-SNAPSHOT</version>
+    <name>Sample Java Client</name>
+    <url>https://github.com/nguyentientungduong/sample</url>
+    <packaging>jar</packaging>
+    <description>Sample Java Client</description>
+
+    <properties>
+        <project.scm.id>git</project.scm.id>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
+    </properties>   
+ 
+    <scm>
+        <connection>scm:git:https://github.com/nguyentientungduong/sample.git</connection>
+        <developerConnection>scm:git:https://github.com/nguyentientungduong/sample.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/nguyentientungduong/sample</url>
+    </scm>
+    
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+    
+    <developers>
+        <developer>
+            <id>nguyentientungduong</id>
+            <name>Nguyen Tien Tung Duong</name>
+            <url />
+            <organization>SampleProject</organization>
+            <organizationUrl />
+            <roles>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jdk14</artifactId>
+            <version>1.7.7</version>
+        </dependency>
+    </dependencies>
+    
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+    <build>
+        <plugins>
+            <plugin>
+              <groupId>org.sonatype.plugins</groupId>
+              <artifactId>nexus-staging-maven-plugin</artifactId>
+              <version>1.6.7</version>
+              <extensions>true</extensions>
+              <configuration>
+                <serverId>ossrh</serverId>
+                <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                <autoReleaseAfterClose>true</autoReleaseAfterClose>
+              </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                <execution>
+                  <id>attach-sources</id>
+                  <goals>
+                    <goal>jar-no-fork</goal>
+                  </goals>
+                </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <configuration>
+                    <additionalparam>-Xdoclint:none</additionalparam>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
