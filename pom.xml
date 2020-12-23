@@ -4,7 +4,7 @@
 
     <groupId>com.github.nguyentientungduong</groupId>
     <artifactId>sample</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>Sample Java Client</name>
     <url>https://github.com/nguyentientungduong/OSSRH-62894</url>
     <packaging>jar</packaging>
