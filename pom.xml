@@ -4,7 +4,7 @@
 
     <groupId>com.github.nguyentientungduong</groupId>
     <artifactId>sample</artifactId>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>Sample Java Client</name>
     <url>https://github.com/nguyentientungduong/sample</url>
     <packaging>jar</packaging>
@@ -60,7 +60,7 @@
         </snapshotRepository>
         <repository>
             <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
         </repository>
     </distributionManagement>
     <build>
