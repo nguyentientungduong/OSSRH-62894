@@ -24,7 +24,7 @@ jobs:
         with:
           java-version: 1.8
       - name: Publish to GitHub Packages
-        run: mvn package; pwd
+        run: git config --global user.email "nguyentientungduong@gmail.com";git config --global user.name "Tung Duong"; mvn package; pwd
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload Jar file
