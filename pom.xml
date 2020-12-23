@@ -17,7 +17,7 @@
     <scm>
         <connection>scm:git:https://github.com/nguyentientungduong/OSSRH-62894.git</connection>
         <developerConnection>scm:git:https://github.com/nguyentientungduong/OSSRH-62894.git</developerConnection>
-        <tag>0.0.5</tag>
+        <tag>HEAD</tag>
         <url>https://github.com/nguyentientungduong/OSSRH-62894</url>
     </scm>
 
