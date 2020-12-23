@@ -1,49 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>com.github.nguyentientungduong</groupId>
     <artifactId>sample</artifactId>
     <version>1.0.0</version>
-    <name>Sample Java Client</name>
-    <url>https://github.com/nguyentientungduong/OSSRH-62894</url>
     <packaging>jar</packaging>
-    <description>Sample Java Client</description>
+    <name>com.github.nguyentientungduong:OSSRH-62894</name>
+    <description>Java Client</description>
+    <url>https://github.com/nguyentientungduong/OSSRH-62894</url>
+
+    <scm>
+        <connection>scm:git:https://github.com/nguyentientungduong/OSSRH-62894.git</connection>
+        <tag>v4.3.0</tag>
+        <url>https://github.com/nguyentientungduong/OSSRH-62894</url>
+    </scm>
 
     <properties>
-        <project.scm.id>git</project.scm.id>
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
     </properties>
 
-    <scm>
-        <connection>scm:git:https://github.com/nguyentientungduong/OSSRH-62894.git</connection>
-        <developerConnection>scm:git:https://github.com/nguyentientungduong/OSSRH-62894.git</developerConnection>
-        <url>https://github.com/nguyentientungduong/OSSRH-62894</url>
-        <tag>sample-1.0.0</tag>
-    </scm>
-
     <licenses>
         <license>
-            <name>Apache License, Version 2.0</name>
-            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-            <comments>A business-friendly OSS license</comments>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
         </license>
     </licenses>
-    
+
     <developers>
         <developer>
-            <id>duongntt</id>
             <name>Nguyen Tien Tung Duong</name>
-            <email>nguyentientungduong@gmail.com</email>
+            <email>contact@maihuong.org</email>
             <url />
-            <organization>Toshiba</organization>
+            <organization>Toshiba Digital Solutions Corporation</organization>
             <organizationUrl />
-            <roles>
-                <role>developer</role>
-            </roles>
-            <timezone>Japan/Tokyo</timezone>
         </developer>
     </developers>
 
@@ -54,7 +44,7 @@
             <version>1.7.7</version>
         </dependency>
     </dependencies>
-    
+
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
@@ -65,42 +55,19 @@
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
+
     <build>
         <plugins>
             <plugin>
-              <groupId>org.sonatype.plugins</groupId>
-              <artifactId>nexus-staging-maven-plugin</artifactId>
-              <version>1.6.7</version>
-              <extensions>true</extensions>
-              <configuration>
-                <serverId>ossrh</serverId>
-                <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                <autoReleaseAfterClose>true</autoReleaseAfterClose>
-              </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.2.1</version>
-                <executions>
-                <execution>
-                  <id>attach-sources</id>
-                  <goals>
-                    <goal>jar-no-fork</goal>
-                  </goals>
-                </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.9.1</version>
-                <configuration>
-                    <additionalparam>-Xdoclint:none</additionalparam>
-                </configuration>
+                <version>2.4</version>
                 <executions>
                     <execution>
-                      <id>attach-javadocs</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
@@ -117,17 +84,16 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.3</version>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
                 <configuration>
-                    <checkModificationExcludes>
-                        <checkModificationExclude>pom.xml</checkModificationExclude>
-                    </checkModificationExcludes>
-                    <autoVersionSubmodules>true</autoVersionSubmodules>
-                    <useReleaseProfile>false</useReleaseProfile>
-                    <releaseProfiles>release</releaseProfiles>
-                    <goals>deploy</goals>
+                    <additionalparam>-Xdoclint:none</additionalparam>
                 </configuration>
+                <executions>
+                    <execution>
+                      <id>attach-javadocs</id>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
