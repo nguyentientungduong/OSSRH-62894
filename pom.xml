@@ -18,7 +18,7 @@
         <connection>scm:git:https://github.com/nguyentientungduong/OSSRH-62894.git</connection>
         <developerConnection>scm:git:https://github.com/nguyentientungduong/OSSRH-62894.git</developerConnection>
         <url>https://github.com/nguyentientungduong/OSSRH-62894</url>
-        <tag>master</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <licenses>
@@ -102,17 +102,6 @@
                       <goals>
                         <goal>jar</goal>
                       </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
                     </execution>
                 </executions>
             </plugin>
