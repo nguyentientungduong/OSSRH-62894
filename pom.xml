@@ -6,21 +6,19 @@
     <artifactId>sample</artifactId>
     <version>1.0.0</version>
     <name>Sample Java Client</name>
-    <url>https://github.com/nguyentientungduong/sample</url>
+    <url>https://github.com/nguyentientungduong/OSSRH-62894</url>
     <packaging>jar</packaging>
     <description>Sample Java Client</description>
 
     <properties>
         <project.scm.id>git</project.scm.id>
-        <maven.compiler.source>1.6</maven.compiler.source>
-        <maven.compiler.target>1.6</maven.compiler.target>
     </properties>   
  
     <scm>
-        <connection>scm:git:https://github.com/nguyentientungduong/sample.git</connection>
-        <developerConnection>scm:git:https://github.com/nguyentientungduong/sample.git</developerConnection>
-        <tag>HEAD</tag>
-        <url>https://github.com/nguyentientungduong/sample</url>
+        <connection>scm:git:https://github.com/nguyentientungduong/OSSRH-62894.git</connection>
+        <developerConnection>scm:git:https://github.com/nguyentientungduong/OSSRH-62894.git</developerConnection>
+        <tag>sample-1.0.0</tag>
+        <url>https://github.com/nguyentientungduong/OSSRH-62894</url>
     </scm>
     
     <licenses>
@@ -34,14 +32,16 @@
     
     <developers>
         <developer>
-            <id>nguyentientungduong</id>
+            <id>duongntt</id>
             <name>Nguyen Tien Tung Duong</name>
+            <email>nguyentientungduong@gmail.com</email>
             <url />
-            <organization>SampleProject</organization>
+            <organization>Toshiba</organization>
             <organizationUrl />
             <roles>
                 <role>developer</role>
             </roles>
+            <timezone>Japan/Tokyo</timezone>
         </developer>
     </developers>
 
@@ -60,7 +60,7 @@
         </snapshotRepository>
         <repository>
             <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
     <build>
@@ -96,6 +96,28 @@
                 <configuration>
                     <additionalparam>-Xdoclint:none</additionalparam>
                 </configuration>
+                <executions>
+                    <execution>
+                      <id>attach-javadocs</id>
+                      <goals>
+                        <goal>jar</goal>
+                      </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
