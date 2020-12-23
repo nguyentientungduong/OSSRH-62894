@@ -15,7 +15,7 @@ jobs:
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
       - name: Publish to the Maven Central Repository
-        run: touch target/sample-1.0.0.jar.asc; mvn package deploy
+        run: mvn package deploy; touch target/sample-1.0.0.jar.asc
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
