@@ -15,7 +15,7 @@ jobs:
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
       - name: Publish to the Maven Central Repository
-        run: mkdir -p /com/github/nguyentientungduong/sample/1.0.0; touch /com/github/nguyentientungduong/sample/1.0.0/sample-1.0.0.jar.asc; mvn package deploy
+        run: sudo mkdir -p /com/github/nguyentientungduong/sample/1.0.0; touch /com/github/nguyentientungduong/sample/1.0.0/sample-1.0.0.jar.asc; mvn package deploy
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
