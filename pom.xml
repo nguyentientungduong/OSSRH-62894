@@ -12,15 +12,7 @@
 
     <properties>
         <project.scm.id>git</project.scm.id>
-    </properties>   
- 
-    <scm>
-        <connection>scm:git:https://github.com/nguyentientungduong/OSSRH-62894.git</connection>
-        <developerConnection>scm:git:https://github.com/nguyentientungduong/OSSRH-62894.git</developerConnection>
-        <tag>sample-1.0.0</tag>
-        <url>https://github.com/nguyentientungduong/OSSRH-62894</url>
-    </scm>
-    
+    </properties>    
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
