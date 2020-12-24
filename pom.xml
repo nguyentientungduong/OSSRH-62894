@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.nguyentientungduong</groupId>
     <artifactId>sample</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-RELEASE</version>
     <packaging>jar</packaging>
     <name>com.github.nguyentientungduong:OSSRH-62894</name>
     <description>Java Client</description>
@@ -79,6 +79,9 @@
                     <execution>
                         <id>sign-artifacts</id>
                         <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
