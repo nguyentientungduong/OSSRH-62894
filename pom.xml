@@ -30,7 +30,7 @@
     <developers>
         <developer>
             <name>Nguyen Tien Tung Duong</name>
-            <email>contact@maihuong.org</email>
+            <email>nguyentientungduong@gmail.com</email>
             <url />
             <organization>Toshiba Digital Solutions Corporation</organization>
             <organizationUrl />
@@ -79,6 +79,9 @@
                     <execution>
                         <id>sign-artifacts</id>
                         <phase>verify</phase>
+                        <goals>
+                           <goal>sign</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
