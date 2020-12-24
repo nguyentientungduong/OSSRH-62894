@@ -16,7 +16,7 @@ jobs:
           server-password: MAVEN_PASSWORD
           gpg-passphrase: PASSPHRASE
       - name: Publish to the Maven Central Repository
-        run: mvn gpg:sign-and-deploy-file -DpomFile=target/sample-1.0.0.pom -Dfile=target/sample-1.0.0.jar -Durl=http://oss.sonatype.org/service/local/staging/deploy/maven2/ -DrepositoryId=sonatype_oss
+        run: mvn gpg:sign-and-deploy-file -Dfile=target/sample-1.0.0.jar -Durl=http://oss.sonatype.org/service/local/staging/deploy/maven2/ -DrepositoryId=sonatype_oss
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
