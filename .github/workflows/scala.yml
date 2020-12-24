@@ -14,7 +14,7 @@ jobs:
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
-          server-passphrase: GPG_KEY
+          gpg-passphrase: GPG_KEY
       - name: Publish to the Maven Central Repository
         run: mvn --batch-mode deploy
         env:
