@@ -30,6 +30,7 @@ jobs:
         run: |
           export GPG_TTY=$(tty)
           mvn package
+          pwd;ls target
           gpg -ab target/sample-1.0.0-javadoc.jar
           gpg -ab target/sample-1.0.0-sources.jar
           gpg -ab target/sample-1.0.0.jar
