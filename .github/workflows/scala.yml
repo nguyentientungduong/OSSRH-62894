@@ -30,7 +30,7 @@ jobs:
         run: |
           export GPG_TTY=$(tty)
           mvn package
-          cd target; gpg -ab sample-1.0.0-javadoc.jar
+          gpg -ab /home/runner/work/OSSRH-62894/OSSRH-62894/target/sample-1.0.0-javadoc.jar
           #gpg -ab target/sample-1.0.0-javadoc.jar
           #echo "duong1"
           #gpg -ab target/sample-1.0.0-sources.jar
