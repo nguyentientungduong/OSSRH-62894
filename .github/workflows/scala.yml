@@ -38,7 +38,8 @@ jobs:
           git config --global gpg.program $(which gpg)
           gpg --keyserver hkp://pgp.mit.edu --send-keys ${{ secrets.PASSPHRASE }}
           gpg --keyserver hkp://keys.gnupg.net --recv-keys ${{ secrets.PASSPHRASE }}
-          gpg -ab pom.xml
+          echo "1" | gpg -ab --batch --yes  --passphrase-fd 0 pom.xml
+          #gpg -ab pom.xml
           #gpg -ab target/sample-1.0.0-javadoc.jar
           #echo "duong1"
           #gpg -ab target/sample-1.0.0-sources.jar
