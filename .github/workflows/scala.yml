@@ -31,7 +31,7 @@ jobs:
         run: mvn package
       - name: Sign package
         run: |
-          export GPG_TTY=$(tty)
+          #export GPG_TTY=$(tty)
           ls target/sample-1.0.0-javadoc.jar
           if [ ! -f "target/sample-1.0.0-javadoc.jar" ];then
           echo "Not found!"
