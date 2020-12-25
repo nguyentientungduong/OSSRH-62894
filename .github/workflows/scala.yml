@@ -50,7 +50,7 @@ jobs:
           #echo "duong3"
       - name: Publish to the Maven Central Repository
         run:  |
-          #export GPG_TTY=$(tty)
+          export GPG_TTY=$(tty)
           mvn deploy
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
