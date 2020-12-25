@@ -27,9 +27,9 @@ jobs:
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
           gpg-passphrase: ${{ secrets.PASSPHRASE }}
-      - name: Build package maven
+      #- name: Build package maven
         # run: mvn package
-      - name: Sign package
+      #- name: Sign package
         #run: |
           #cp target/sample-1.0.0-javadoc.jar target/sample-1.0.0-javadoc.jar.asc
           #cp target/sample-1.0.0-sources.jar target/sample-1.0.0-sources.jar.asc
@@ -49,8 +49,7 @@ jobs:
           #gpg -ab target/sample-1.0.0.jar
           #echo "duong3"
       - name: Publish to the Maven Central Repository
-        run: |
-          mvn --batch-mode deploy
+        run: mvn --batch-mode deploy
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
