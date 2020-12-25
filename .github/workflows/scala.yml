@@ -28,12 +28,12 @@ jobs:
           server-password: MAVEN_PASSWORD
           gpg-passphrase: ${{ secrets.PASSPHRASE }}
       - name: Build package maven
-        run: mvn package
+        # run: mvn package
       - name: Sign package
-        run: |
-          cp target/sample-1.0.0-javadoc.jar target/sample-1.0.0-javadoc.jar.asc
-          cp target/sample-1.0.0-sources.jar target/sample-1.0.0-sources.jar.asc
-          cp target/sample-1.0.0.jar target/sample-1.0.0.jar.asc
+        #run: |
+          #cp target/sample-1.0.0-javadoc.jar target/sample-1.0.0-javadoc.jar.asc
+          #cp target/sample-1.0.0-sources.jar target/sample-1.0.0-sources.jar.asc
+          #cp target/sample-1.0.0.jar target/sample-1.0.0.jar.asc
           #export GPG_TTY=$(tty)
           #ls
           #gpg --list-secret-keys
