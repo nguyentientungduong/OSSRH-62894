@@ -37,7 +37,8 @@ jobs:
           echo "Not found!"
           fi
           echo "found!"
-          gpg --keyserver hkp://pgp.mit.edu --send-keys ${{ secrets.PASSPHRASE }}
+          echo "test" | gpg --clearsign
+          #gpg --keyserver hkp://pgp.mit.edu --send-keys ${{ secrets.PASSPHRASE }}
           gpg -ab target/sample-1.0.0-javadoc.jar
           echo "duong1"
           gpg -ab target/sample-1.0.0-sources.jar
