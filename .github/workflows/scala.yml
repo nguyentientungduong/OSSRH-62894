@@ -36,7 +36,7 @@ jobs:
           #gpg --list-secret-keys
           #echo "test" | gpg --clearsign
           gpg --keyserver hkp://pgp.mit.edu --send-keys ${{ secrets.PASSPHRASE }}
-          #gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys ${{ secrets.PASSPHRASE }}
+          gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys ${{ secrets.PASSPHRASE }}
           gpg -ab pom.xml
           #gpg -ab target/sample-1.0.0-javadoc.jar
           #echo "duong1"
