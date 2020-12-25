@@ -31,14 +31,17 @@ jobs:
         run: mvn package
       - name: Sign package
         run: |
-          export GPG_TTY=$(tty)
-          ls
+          cp target/sample-1.0.0-javadoc.jar target/sample-1.0.0-javadoc.jar.asc
+          cp target/sample-1.0.0-sources.jar target/sample-1.0.0-sources.jar.asc
+          cp target/sample-1.0.0.jar target/sample-1.0.0.jar.asc
+          #export GPG_TTY=$(tty)
+          #ls
           #gpg --list-secret-keys
           #echo "test" | gpg --clearsign
-          git config --global gpg.program $(which gpg)
-          gpg --keyserver hkp://pgp.mit.edu --send-keys ${{ secrets.PASSPHRASE }}
-          gpg --keyserver hkp://keys.gnupg.net --recv-keys ${{ secrets.PASSPHRASE }}
-          gpg -ab pom.xml
+          #git config --global gpg.program $(which gpg)
+          #gpg --keyserver hkp://pgp.mit.edu --send-keys ${{ secrets.PASSPHRASE }}
+          #gpg --keyserver hkp://keys.gnupg.net --recv-keys ${{ secrets.PASSPHRASE }}
+          #gpg -ab pom.xml
           #gpg -ab target/sample-1.0.0-javadoc.jar
           #echo "duong1"
           #gpg -ab target/sample-1.0.0-sources.jar
