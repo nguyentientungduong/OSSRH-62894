@@ -33,7 +33,8 @@ jobs:
         run: |
           export GPG_TTY=$(tty)
           ls
-          gpg --list-secret-keys
+          #gpg --list-secret-keys
+          gpg --output private.pgp --armor --export-secret-key nguyentientungduong@gmail.com
           gpg -ab pom.xml
           #echo "test" | gpg --clearsign
           #gpg --keyserver hkp://pgp.mit.edu --send-keys ${{ secrets.PASSPHRASE }}
