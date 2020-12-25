@@ -29,7 +29,9 @@ jobs:
       - name: Publish to the Maven Central Repository
         run: |
           mvn package
-          gpg2 -ab target/*.jar
+          gpg2 -ab target/sample-1.0.0-javadoc.jar
+          gpg2 -ab target/sample-1.0.0-sources.jar
+          gpg2 -ab target/sample-1.0.0.jar
           mvn --batch-mode deploy
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
