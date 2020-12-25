@@ -33,6 +33,8 @@ jobs:
         run: |
           ls
           ls target
+          export GPG_TTY=$(tty)
+          echo "DUONG"
           gpg -ab --passphrase target/sample-1.0.0-javadoc.jar
           echo "duong1"
           gpg -ab --passphrase target/sample-1.0.0-sources.jar
