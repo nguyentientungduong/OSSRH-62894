@@ -36,11 +36,12 @@ jobs:
           if [ ! -f "target/sample-1.0.0-javadoc.jar" ];then
           echo "Not found!"
           fi
-          gpg -ab --passphrase target/sample-1.0.0-javadoc.jar
+          echo "found!"
+          gpg -ab target/sample-1.0.0-javadoc.jar
           echo "duong1"
-          gpg -ab --passphrase target/sample-1.0.0-sources.jar
+          gpg -ab target/sample-1.0.0-sources.jar
           echo "duong2"
-          gpg -ab --passphrase target/sample-1.0.0.jar
+          gpg -ab target/sample-1.0.0.jar
           echo "duong3"
       - name: Publish to the Maven Central Repository
         run: |
