@@ -30,11 +30,15 @@ jobs:
         run: |
           export GPG_TTY=$(tty)
           mvn package
-          pwd;ls target
+          pwd;ls target; ls
           gpg -ab target/sample-1.0.0-javadoc.jar
+          echo "duong1"
           gpg -ab target/sample-1.0.0-sources.jar
+          echo "duong2"
           gpg -ab target/sample-1.0.0.jar
+          echo "duong3"
           mvn --batch-mode deploy
+          echo "duong4"
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
