@@ -26,19 +26,22 @@ jobs:
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
-          gpg-passphrase: 1
-      - name: Publish to the Maven Central Repository
+          gpg-passphrase: ${{ secrets.PASSPHRASE }}
+      - name: Build package maven
+        run: mvn package
+      - name: Sign package
         run: |
-          export GPG_TTY=$(tty)
-          mvn package
+          ls
+          ls target
           gpg -ab --passphrase target/sample-1.0.0-javadoc.jar
           echo "duong1"
           gpg -ab --passphrase target/sample-1.0.0-sources.jar
           echo "duong2"
           gpg -ab --passphrase target/sample-1.0.0.jar
           echo "duong3"
+      - name: Publish to the Maven Central Repository
+        run: |
           mvn --batch-mode deploy
-          echo "duong4"
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
