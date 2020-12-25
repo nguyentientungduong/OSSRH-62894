@@ -32,7 +32,8 @@ jobs:
       - name: Sign package
         run: |
           export GPG_TTY=$(tty)
-          ls /home/runner/.gnupg
+          ls
+          gpg --list-secret-keys
           gpg -ab pom.xml
           #echo "test" | gpg --clearsign
           #gpg --keyserver hkp://pgp.mit.edu --send-keys ${{ secrets.PASSPHRASE }}
