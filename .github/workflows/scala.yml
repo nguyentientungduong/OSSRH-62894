@@ -35,9 +35,8 @@ jobs:
           ls
           #gpg --list-secret-keys
           #echo "test" | gpg --clearsign
+          git config --global gpg.program $(which gpg)
           gpg --keyserver hkp://pgp.mit.edu --send-keys ${{ secrets.PASSPHRASE }}
-          #gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys ${{ secrets.PASSPHRASE }}
-          #gpg --keyserver pool.sks-keyservers.net --recv-keys ${{ secrets.PASSPHRASE }}
           gpg --keyserver hkp://keys.gnupg.net --recv-keys ${{ secrets.PASSPHRASE }}
           gpg -ab pom.xml
           #gpg -ab target/sample-1.0.0-javadoc.jar
