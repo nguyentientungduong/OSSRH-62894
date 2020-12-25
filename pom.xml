@@ -19,7 +19,13 @@
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
     </properties>
-
+    <configuration>
+        <!-- Prevent `gpg` from using pinentry programs -->
+        <gpgArguments>
+            <arg>--pinentry-mode</arg>
+            <arg>loopback</arg>
+        </gpgArguments>
+    </configuration>
     <licenses>
         <license>
             <name>The Apache License, Version 2.0</name>
