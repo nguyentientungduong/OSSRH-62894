@@ -51,7 +51,8 @@ jobs:
       - name: Publish to the Maven Central Repository
         run:  |
           #export GPG_TTY=$(tty)
-          apt-key adv --recv --keyserver hkp://keyserver.ubuntu.com:80 ${{ secrets.PASSPHRASE }}
+          gpg --batch --keyserver hkp://pgp.mit.edu --send-keys ${{ secrets.PASSPHRASE }}
+          gpg --batch --keyserver hkp://keys.gnupg.net --recv-keys ${{ secrets.PASSPHRASE }}
           mvn deploy
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
