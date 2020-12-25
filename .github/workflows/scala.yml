@@ -7,26 +7,35 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Import GPG key
-        id: import_gpg
-        uses: crazy-max/ghaction-import-gpg@v3
-        with:
-          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
-      - name: GPG user IDs
-        run: |
-          echo "fingerprint: ${{ steps.import_gpg.outputs.fingerprint }}"
-          echo "keyid:       ${{ steps.import_gpg.outputs.keyid }}"
-          echo "name:        ${{ steps.import_gpg.outputs.name }}"
-          echo "email:       ${{ steps.import_gpg.outputs.email }}"
+      #- name: Import GPG key
+       # id: import_gpg
+       # uses: crazy-max/ghaction-import-gpg@v3
+        #with:
+         # gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+         # passphrase: ${{ secrets.PASSPHRASE }}
+      #- name: GPG user IDs
+       # run: |
+        #  echo "fingerprint: ${{ steps.import_gpg.outputs.fingerprint }}"
+         # echo "keyid:       ${{ steps.import_gpg.outputs.keyid }}"
+          #echo "name:        ${{ steps.import_gpg.outputs.name }}"
+          #echo "email:       ${{ steps.import_gpg.outputs.email }}"
       - name: Set up Java for publishing to Maven Central Repository
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-          server-id: ossrh
+          server-id: maven
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
           gpg-passphrase: ${{ secrets.PASSPHRASE }}
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+      - name:  Build with Maven
+        run: mvn -B package --file pom.xml
+      - name: Publish to Apache Maven Central
+        run: mvn deploy
+        env:
+          MAVEN_USERNAME: duongntt
+          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.PASSPHRASE }}
       #- name: Build package maven
         # run: mvn package
       #- name: Sign package
