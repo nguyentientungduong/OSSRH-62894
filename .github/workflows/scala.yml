@@ -31,7 +31,7 @@ jobs:
         run: mvn package
       - name: Sign package
         run: |
-          export GPG_TTY=$(tty)
+          #export GPG_TTY=$(tty)
           ls
           #gpg --list-secret-keys
           #echo "test" | gpg --clearsign
