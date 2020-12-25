@@ -31,10 +31,11 @@ jobs:
         run: mvn package
       - name: Sign package
         run: |
-          ls
-          ls target
           export GPG_TTY=$(tty)
-          echo "DUONG"
+          ls target/sample-1.0.0-javadoc.jar
+          if [ ! -f "target/sample-1.0.0-javadoc.jar" ];then
+          echo "Not found!"
+          fi
           gpg -ab --passphrase target/sample-1.0.0-javadoc.jar
           echo "duong1"
           gpg -ab --passphrase target/sample-1.0.0-sources.jar
